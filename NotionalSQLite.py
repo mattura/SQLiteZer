@@ -124,7 +124,7 @@ class NotionalSQLite:
                 celldatalist.append(recordnum)
             elif field[0] == "ST_INT8":
                 self.dbfile.seek(dataoffset)
-                celldatalist.append(ord(struct.unpack(">c",self.dbfile.read(1))[0]))
+                celldatalist.append(struct.unpack("b",self.dbfile.read(1))[0])
                 dataoffset+=field[1]
             elif field[0] == "ST_INT16":
                 self.dbfile.seek(dataoffset)
